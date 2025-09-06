@@ -1,0 +1,34 @@
+name: gc_calc
+owner: your_toolshed_username
+description: |
+  Calculate GC content percentage for DNA sequences in FASTA format.
+  
+  This tool analyzes FASTA files containing DNA sequences and provides detailed 
+  statistics including GC content percentage, AT content percentage, and sequence 
+  length for each sequence. GC content is an important metric in genomics research 
+  for studying DNA melting temperature, gene expression patterns, and evolutionary 
+  relationships.
+  
+  Features:
+  - Multi-sequence FASTA support
+  - Case-insensitive nucleotide handling
+  - Comprehensive output with both GC and AT statistics
+  - Error handling for malformed sequences
+  - Tab-delimited output compatible with Galaxy workflows
+
+synopsis: Calculate GC content percentage for FASTA sequences
+
+remote_repository_url: https://github.com/yourusername/gc-calc
+homepage_url: https://github.com/yourusername/gc-calc
+
+categories:
+  - Sequence Analysis
+
+repositories:
+  gc_calc:
+    description: GC Content Calculator for DNA sequences
+    include:
+      - toolExample.pl
+      - toolExample.xml
+      - test-data/input.fasta
+      - test-data/expected_output.txt

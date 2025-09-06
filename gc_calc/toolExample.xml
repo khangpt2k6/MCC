@@ -1,0 +1,88 @@
+<tool id="gc_content_calculator" name="GC Content Calculator" version="1.0.0">
+    <description>Calculate GC content percentage for FASTA sequences</description>
+    
+    <requirements>
+        <requirement type="package" version="5.26">perl</requirement>
+    </requirements>
+    
+    <command detect_errors="exit_code"><![CDATA[
+        perl '$__tool_directory__/toolExample.pl'
+        --input '$input'
+        --output '$output'
+    ]]></command>
+    
+    <inputs>
+        <param name="input" type="data" format="fasta" label="Input FASTA file" 
+               help="FASTA file containing DNA sequences for GC content analysis"/>
+    </inputs>
+    
+    <outputs>
+        <data name="output" format="tabular" label="GC Content Results on ${on_string}">
+            <actions>
+                <action name="column_names" type="metadata" default="Sequence_ID,Length,GC_Count,GC_Percentage,AT_Count,AT_Percentage"/>
+            </actions>
+        </data>
+    </outputs>
+    
+    <tests>
+        <test>
+            <param name="input" value="input.fasta"/>
+            <output name="output" file="expected_output.txt"/>
+        </test>
+    </tests>
+    
+    <help><![CDATA[
+**What it does**
+
+This tool calculates the GC content percentage for each sequence in a FASTA file.
+
+GC content is the percentage of nucleotides that are either guanine (G) or cytosine (C) in a DNA sequence. This is an important metric in genomics and molecular biology.
+
+**Input**
+
+- FASTA file containing one or more DNA sequences
+
+**Output**
+
+A tab-delimited file containing:
+
+- **Sequence_ID**: The identifier from the FASTA header
+- **Length**: Total length of the sequence
+- **GC_Count**: Number of G and C nucleotides
+- **GC_Percentage**: Percentage of G and C nucleotides
+- **AT_Count**: Number of A and T nucleotides  
+- **AT_Percentage**: Percentage of A and T nucleotides
+
+**Example**
+
+Input FASTA::
+
+    >sequence1
+    ATGCGATCGTAGC
+    >sequence2  
+    AAATTTTGGGGCCCC
+
+Output::
+
+    Sequence_ID    Length    GC_Count    GC_Percentage    AT_Count    AT_Percentage
+    sequence1      13        7           53.85            6           46.15
+    sequence2      15        10          66.67            5           33.33
+
+**Notes**
+
+- Only standard DNA nucleotides (A, T, G, C) are counted
+- N's and other ambiguous nucleotides are ignored in calculations
+- Sequences can be in upper or lower case
+    ]]></help>
+    
+    <citations>
+        <citation type="bibtex">
+@misc{gc_content_calculator,
+    title={GC Content Calculator},
+    author={Your Name},
+    year={2024},
+    note={Galaxy tool for calculating GC content of DNA sequences}
+}
+        </citation>
+    </citations>
+</tool>

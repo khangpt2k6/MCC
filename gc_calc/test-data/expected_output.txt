@@ -1,0 +1,6 @@
+Sequence_ID	Length	GC_Count	GC_Percentage	AT_Count	AT_Percentage
+sequence1	17	9	52.94	8	47.06
+sequence2	15	10	66.67	5	33.33
+sequence3	16	16	100.00	0	0.00
+sequence4	14	0	0.00	14	100.00
+sequence5_mixed_case	16	8	50.00	8	50.00
